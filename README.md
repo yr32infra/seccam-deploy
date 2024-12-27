@@ -10,4 +10,4 @@ htpasswd -c .htpasswd <USERNAME>
 
 # Append
 htpasswd .htpasswd <USERNAME>
-``
+```
