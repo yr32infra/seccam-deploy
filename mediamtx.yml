@@ -1,0 +1,6 @@
+paths:
+  cam1:
+    source: rtsp://mediamtx:mediamtx@192.168.0.45/cam/realmonitor?channel=1&subtype=0
+
+  cam2:
+    source: rtsp://mediamtx:mediamtx@192.168.0.45/cam/realmonitor?channel=2&subtype=0

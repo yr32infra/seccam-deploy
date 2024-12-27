@@ -1,0 +1,68 @@
+version: '3.9'
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:1.10.0@sha256:862dd2cf76d658049032a5f9bc3dd28d61e9f44945d16b9af7fbe5d57978da58
+    hostname: mediamtx
+    container_name: seccam__mediamtx
+
+    restart: unless-stopped
+
+    volumes:
+      - type: bind
+        source: ./mediamtx.yml
+        target: /mediamtx.yml
+        read_only: true
+
+    networks:
+      - default
+
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+
+  nginx:
+    image: nginx:1.27.3@sha256:42e917aaa1b5bb40dd0f6f7f4f857490ac7747d7ef73b391c774a41a8b994f15
+    hostname: nginx
+    container_name: seccam__nginx
+
+    restart: unless-stopped
+
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+
+      - type: bind
+        source: ./.htaccess
+        target: /etc/htaccess
+        read_only: true
+
+    networks:
+      - default
+
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+  cloudflared:
+    image: cloudflare/cloudflared:2024.6.0@sha256:8245fa2eeeabf437b061909cd59f123b39730f626bc676dc37cd3fb9f6880580
+    hostname: cloudflared
+    container_name: seccam__cloudflared
+    restart: unless-stopped
+
+    command: tunnel run --token ${TUNNEL_TOKEN}
+
+    networks:
+      - default
+
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+networks:
+  default:
+    name: seccam__default
