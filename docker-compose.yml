@@ -35,8 +35,8 @@ services:
         read_only: true
 
       - type: bind
-        source: ./.htaccess
-        target: /etc/htaccess
+        source: ./htpasswd
+        target: /etc/htpasswd
         read_only: true
 
     networks:
