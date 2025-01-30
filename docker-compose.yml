@@ -48,7 +48,7 @@ services:
           memory: 128m
 
   cloudflared:
-    image: cloudflare/cloudflared:2024.12.2@sha256:cb38f3f30910a7d51545118a179b8516eb7066eac61855d62ce6ed733c54ce70
+    image: cloudflare/cloudflared:2025.1.1@sha256:bc2b3edd9eb0257a1a1fc58113e97426afe524e04b898173cd7df01442bcb4b3
     hostname: cloudflared
     container_name: seccam__cloudflared
     restart: unless-stopped
