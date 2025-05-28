@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   mediamtx:
-    image: bluenviron/mediamtx:1.12.2@sha256:691bd1d4cef49226d1d3c86db2e9abe1fe8c7f98547cdc77d1c464637adadb6e
+    image: bluenviron/mediamtx:1.12.3@sha256:3634a1eed1288b93e8d22ed74694eae96d483fcf676cac5d0c91830ad1b86b3d
     hostname: mediamtx
     container_name: seccam__mediamtx
 
