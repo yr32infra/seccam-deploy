@@ -22,7 +22,7 @@ services:
           memory: 256m
 
   nginx:
-    image: nginx:1.29.5@sha256:0236ee02dcbce00b9bd83e0f5fbc51069e7e1161bd59d99885b3ae1734f3392e
+    image: nginx:1.29.6@sha256:abe31ab917829ab5063d775ff83d784c6d7a00fb4bcc5424ef3dbad8d0729e4a
     hostname: nginx
     container_name: seccam__nginx
 
